@@ -1,0 +1,52 @@
+/* Pocket Protocol kiosk - Design Language v1 tokens (supplied in brief). */
+:root{--navy:#002D4B;--navy-2:#0B3A5D;--navy-line:rgba(244,240,230,.14);--gold:#C6A15B;--gold-deep:#A8843F;--gold-tint:rgba(198,161,91,.14);--paper:#FAF8F3;--stone:#EDE9DF;--line:#D9D3C4;--ink:#002D4B;--ink-2:#3D5468;--on-navy:#F4F0E6;--on-navy-2:#B9C4CE;--two-tone:#7D8FA0;--ok:#7FC8A0;--warn:#E0A458;
+--display:"OPTIAmway","Optima","Palatino Linotype",Georgia,serif;--sans:"Brandon Grotesque","Century Gothic","Futura",sans-serif;--radius-btn:4px;--radius-card:20px;}
+
+/* Fonts: drop OPTIAmway.otf / BrandonGrotesque-Bold.otf / a light cut into fonts/ and they are picked up
+   (see README). local() only, so a missing file never causes a 404 or console error. */
+@font-face{font-family:"OPTIAmway";src:local("OPTIAmway"),local("OPTIAmway Regular");font-weight:400}
+@font-face{font-family:"Brandon Grotesque";src:local("Brandon Grotesque Light"),local("BrandonGrotesque-Light");font-weight:300}
+@font-face{font-family:"Brandon Grotesque";src:local("Brandon Grotesque Bold"),local("BrandonGrotesque-Bold");font-weight:700}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;max-width:100%;overflow-x:hidden}
+body{font-family:var(--sans);font-weight:300;font-size:20px;line-height:1.45;color:var(--on-navy);background:var(--navy);-webkit-text-size-adjust:100%}
+body.paper{background:var(--paper);color:var(--ink)}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;line-height:1.1}
+h1{font-size:clamp(34px,5vw,64px)}
+h2{font-size:clamp(28px,3.4vw,44px)}
+.sub{font-family:var(--sans);font-weight:700}
+p{margin:0 0 .6em}
+.two-tone .l2{display:block;color:var(--on-navy-2)}
+body.paper .two-tone .l2{color:var(--two-tone)}
+.eyebrow{font-family:var(--sans);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:14px;display:flex;align-items:center;gap:10px;margin:0 0 14px}
+.eyebrow::before{content:"";width:10px;height:10px;background:var(--gold);flex:none}
+.muted{color:var(--on-navy-2)}
+body.paper .muted{color:var(--ink-2)}
+
+/* Buttons: one gold primary per view, secondary outlined */
+.btn{font-family:var(--sans);font-weight:700;font-size:20px;min-height:64px;padding:14px 28px;border-radius:var(--radius-btn);border:2px solid var(--gold);background:transparent;color:var(--on-navy);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:10px;text-align:center}
+.btn.primary{background:var(--gold);color:var(--navy)}
+body.paper .btn{color:var(--ink);border-color:var(--ink)}
+body.paper .btn.primary{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.btn.small{min-height:48px;font-size:16px;padding:8px 18px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+.glass{background:rgba(0,29,48,.62);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(244,240,230,.2);border-radius:16px}
+.card{background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:var(--radius-card);padding:24px}
+
+/* SAMPLE chip - always visible whenever illustrative numbers show */
+.sample-chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:14px;color:var(--navy);background:var(--gold);padding:6px 12px;border-radius:var(--radius-btn)}
+.sample-chip.big{font-size:clamp(22px,3vw,40px);padding:10px 22px}
+[hidden]{display:none!important}
+
+/* Status pill */
+.pill{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;border:1px solid rgba(244,240,230,.3);font-family:var(--sans);font-weight:700;font-size:16px;letter-spacing:.04em}
+.pill i{width:12px;height:12px;border-radius:50%;background:var(--on-navy-2);display:inline-block}
+.pill.ok i{background:var(--ok)}
+.pill.wait i{background:var(--warn)}
+.pill.off i{background:#E07A6B}
+
+@media (prefers-reduced-motion:no-preference){.pulse{animation:pulse 2s ease-in-out infinite}}
+@keyframes pulse{50%{opacity:.55}}

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#002D4B">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Pelvic stability trace | Champion Pride</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23002D4B'/%3E%3Crect x='11' y='11' width='10' height='10' fill='%23C6A15B'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/kiosk.css">
+<link rel="stylesheet" href="css/display.css">
+</head>
+<body class="disp">
+<div class="stage" id="stage" data-state="attract">
+
+  <header class="bar">
+    <div class="brand"><span class="eyebrow">Champion Pride</span></div>
+    <div class="bar-right">
+      <span class="sample-chip" id="sampleChipTop" hidden>Sample</span>
+      <span class="timer" id="timer" aria-live="off" hidden>60</span>
+      <span class="pill wait" id="pill" role="status"><i></i><span id="pillText">Waiting for phone</span></span>
+      <button class="gear" id="gear" aria-label="Settings" title="Settings">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="trace glass" aria-label="Pelvic stability trace">
+      <div class="trace-head">
+        <h1 class="sub t-title">Pelvic stability trace</h1>
+        <span class="muted t-sub">Last 10 seconds. Gold marks are steadiness events.</span>
+      </div>
+      <div class="cvwrap"><canvas id="cv" aria-hidden="true"></canvas></div>
+      <div class="rein glass" id="rein" hidden>
+        <div class="eyebrow">Rein pressure</div>
+        <div class="rein-row"><span>Left</span><div class="rbar"><b id="rl"></b></div><em id="rlv">0</em></div>
+        <div class="rein-row"><span>Right</span><div class="rbar"><b id="rr"></b></div><em id="rrv">0</em></div>
+      </div>
+    </section>
+
+    <section class="tiles" aria-label="Live readings">
+      <div class="tile glass"><div class="eyebrow">Sway</div><div class="big" id="vSway">--</div><div class="cap" id="cSway">degrees, side to side</div></div>
+      <div class="tile glass"><div class="eyebrow">Symmetry</div><div class="big" id="vSym">--</div><div class="cap" id="cSym">match, one side to the other</div></div>
+      <div class="tile glass"><div class="eyebrow">Steadiness events</div><div class="big" id="vEv">--</div><div class="cap" id="cEv">sudden changes this session</div></div>
+    </section>
+
+    <div class="strip">
+      <span class="muted" id="tempoLine">Tempo and rhythm appear once you are moving.</span>
+    </div>
+  </main>
+
+  <footer class="foot"><span class="disc" id="disc"></span></footer>
+
+  <!-- Attract / pairing -->
+  <div class="overlay" id="ovAttract">
+    <div class="ov-card glass">
+      <p class="eyebrow">Try it</p>
+      <h2 class="two-tone"><span id="attractH1">Sit down, phone in your pocket.</span><span class="l2" id="attractH2">See how your phone reads your movement.</span></h2>
+      <div class="pair" id="pairBox">
+        <div class="qrbox" id="qrPair" aria-label="QR code to open the phone page"></div>
+        <div class="pair-text">
+          <div class="muted">On your phone, scan the code, or go to the page and enter</div>
+          <div class="code" id="roomCode">----</div>
+          <div class="muted small" id="pairUrl"></div>
+        </div>
+      </div>
+      <p class="muted ready-msg" id="readyMsg" hidden>Phone connected. Press Start on the phone.</p>
+    </div>
+  </div>
+
+  <!-- End of session -->
+  <div class="overlay" id="ovEnd" hidden>
+    <div class="ov-card glass wide">
+      <p class="eyebrow">Your session</p>
+      <h2 class="two-tone"><span>That was your trace.</span><span class="l2">Here is what your phone saw.</span></h2>
+      <ul class="sent" id="sentences"></ul>
+      <div class="end-foot">
+        <div class="eye">
+          <div class="qrbox sm" id="qrEye" aria-label="QR code to the free read page"></div>
+          <div><div class="sub">Want a free Sovereign Eye read?</div><div class="muted">Scan to start. One free read per person, by email.</div></div>
+        </div>
+        <button class="btn primary" id="btnDone">Done</button>
+      </div>
+      <div class="muted small" id="endCount"></div>
+    </div>
+  </div>
+
+  <!-- Settings -->
+  <div class="overlay" id="ovSet" hidden>
+    <div class="ov-card glass">
+      <p class="eyebrow">Stand settings</p>
+      <div class="set-row"><label class="sub" for="selDur">Session length</label>
+        <select id="selDur"><option>30</option><option>45</option><option selected>60</option><option>90</option><option>120</option></select> <span class="muted">seconds</span></div>
+      <div class="set-row"><span class="sub">Room code</span> <span class="code sm" id="setCode">----</span> <button class="btn small" id="btnNewCode">New code</button></div>
+      <div class="set-row"><button class="btn" id="btnDemo">Switch to Demo mode</button></div>
+      <div class="set-row"><button class="btn primary" id="btnClose">Close</button></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/analysis.js"></script>
+<script src="js/qr.js"></script>
+<script src="js/transport.js"></script>
+<script src="js/display.js"></script>
+</body>
+</html>

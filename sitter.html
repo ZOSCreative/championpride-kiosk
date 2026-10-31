@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sitter card | Champion Pride</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23002D4B'/%3E%3Crect x='11' y='11' width='10' height='10' fill='%23C6A15B'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/kiosk.css">
+<link rel="stylesheet" href="css/card.css">
+<style>
+body{background:var(--paper);color:var(--ink);font-size:18px}
+.sheet{max-width:148mm;margin:0 auto;padding:16px}
+.sheet h1{font-size:clamp(30px,8vw,44px)}
+.sheet .foot{font-size:13px;color:var(--ink-2);margin-top:14px}
+.noprint{max-width:148mm;margin:12px auto;padding:0 16px}
+@page{size:A5 portrait;margin:8mm}
+@media print{.noprint{display:none}body{background:#fff}.sheet{max-width:none;padding:0}.srow{break-inside:avoid;padding:8px}.scard{gap:8px}.snum{font-size:46px}.st{font-size:20px}.sd{font-size:15px}.sfig{width:100%}.srow{grid-template-columns:30mm 1fr}.sheet h1{font-size:28px}}
+</style>
+</head>
+<body>
+<div class="noprint"><button class="btn primary" onclick="window.print()">Print (A5)</button></div>
+<div class="sheet">
+  <p class="eyebrow" style="color:var(--ink)">Champion Pride</p>
+  <h1 class="two-tone">Four steps.<span class="l2" style="color:var(--two-tone)">About a minute.</span></h1>
+  <div id="card" style="margin-top:14px"></div>
+  <p class="foot">A demonstration of how your phone sees your movement. Not a medical or clinical measure. Nothing about you is stored.</p>
+</div>
+<script src="js/card.js"></script>
+<script>PK.card.render(document.getElementById('card'));</script>
+</body>
+</html>

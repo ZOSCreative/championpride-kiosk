@@ -1,0 +1,50 @@
+body.disp{min-height:100vh;min-height:100dvh;background:radial-gradient(1200px 700px at 20% -10%,var(--navy-2),var(--navy) 60%)}
+.stage{height:100vh;height:100dvh;overflow:hidden;display:flex;flex-direction:column;padding:max(16px,env(safe-area-inset-top)) max(16px,2.2vw) max(12px,env(safe-area-inset-bottom));gap:clamp(10px,1.6vw,22px);position:relative}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.bar .eyebrow{margin:0}
+.bar-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.timer{font-family:var(--display);font-size:clamp(30px,3.4vw,52px);min-width:2.2ch;text-align:right;color:var(--gold)}
+.gear{width:64px;height:64px;border-radius:var(--radius-btn);border:1px solid var(--navy-line);background:transparent;color:var(--on-navy-2);cursor:pointer;display:grid;place-items:center}
+.main{flex:1;display:flex;flex-direction:column;gap:clamp(10px,1.6vw,22px);min-height:0}
+.trace{position:relative;flex:1 1 0;min-height:150px;display:flex;flex-direction:column;padding:clamp(12px,1.6vw,22px)}
+.trace-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.t-title{margin:0;font-size:clamp(18px,1.8vw,26px)}
+.t-sub{font-size:clamp(14px,1.3vw,18px)}
+.cvwrap{flex:1;position:relative;min-height:90px}
+#cv{position:absolute;inset:0;width:100%;height:100%;display:block}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.6vw,22px)}
+.tile{padding:clamp(14px,1.8vw,26px)}
+.tile .eyebrow{margin-bottom:6px}
+.big{font-family:var(--display);font-size:clamp(40px,min(7.4vw,11vh),112px);line-height:1;color:var(--on-navy);font-variant-numeric:tabular-nums}
+.cap{color:var(--on-navy-2);font-size:clamp(15px,1.5vw,22px);margin-top:6px}
+.strip{min-height:28px;font-size:clamp(16px,1.6vw,22px)}
+.foot{font-size:clamp(14px,1.2vw,17px);color:var(--on-navy-2)}
+.disc{display:block}
+.overlay{position:absolute;inset:0;display:grid;place-items:center;padding:16px;background:rgba(0,29,48,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);z-index:5}
+.ov-card{padding:clamp(20px,3vw,44px);max-width:min(980px,100%);width:100%}
+.ov-card.wide{max-width:min(1100px,100%)}
+.ov-card h2{font-size:clamp(30px,4.4vw,64px);margin-bottom:18px}
+.pair{display:flex;align-items:center;gap:clamp(16px,2.6vw,40px);flex-wrap:wrap}
+.qrbox{width:clamp(150px,18vw,230px);aspect-ratio:1;background:#fff;border-radius:12px;padding:6px;flex:none}
+.qrbox.sm{width:clamp(110px,12vw,150px)}
+.qrbox svg{width:100%;height:100%;display:block}
+.code{font-family:var(--display);font-size:clamp(56px,9vw,128px);letter-spacing:.12em;color:var(--gold);line-height:1}
+.code.sm{font-size:36px}
+.small{font-size:clamp(13px,1.1vw,16px)}
+.ready-msg{font-size:clamp(22px,2.4vw,34px);color:var(--on-navy);margin-top:14px}
+.sent{margin:0 0 18px;padding:0;list-style:none;display:grid;gap:10px;font-size:clamp(18px,2vw,28px)}
+.sent li{padding-left:22px;position:relative}
+.sent li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height:10px;background:var(--gold)}
+.end-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.eye{display:flex;align-items:center;gap:18px;font-size:clamp(16px,1.6vw,22px)}
+.set-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:16px 0}
+select{font:inherit;font-weight:700;min-height:56px;min-width:96px;padding:0 14px;background:var(--navy);color:var(--on-navy);border:1px solid var(--gold);border-radius:var(--radius-btn)}
+.rein{position:absolute;right:clamp(12px,1.6vw,22px);top:clamp(56px,6vw,84px);padding:14px 18px;width:min(300px,60%)}
+.rein-row{display:grid;grid-template-columns:56px 1fr 70px;align-items:center;gap:10px;margin-top:8px}
+.rbar{height:14px;background:var(--navy-line);border-radius:7px;overflow:hidden}
+.rbar b{display:block;height:100%;width:0;background:var(--gold);transition:width .15s}
+.rein-row em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums}
+.stage[data-state=running] .overlay#ovAttract,.stage[data-state=done] .overlay#ovAttract{display:none}
+.stage[data-state=running] .trace{outline:1px solid rgba(198,161,91,.35)}
+@media (max-width:760px){.stage{height:auto;min-height:100dvh;overflow:visible}.trace{flex:none;height:260px}.tiles{grid-template-columns:1fr}.overlay{position:fixed}.ov-card{max-height:92dvh;overflow:auto}.pair{justify-content:center;text-align:center}.big{font-size:clamp(44px,16vw,80px)}.gear{width:64px}}
+@media (prefers-reduced-motion:reduce){.rbar b{transition:none}}

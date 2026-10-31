@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#002D4B">
+<title>Pocket Protocol stand | Champion Pride</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23002D4B'/%3E%3Crect x='11' y='11' width='10' height='10' fill='%23C6A15B'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/kiosk.css">
+<style>
+body{min-height:100vh;min-height:100dvh;background:radial-gradient(1000px 600px at 15% -10%,var(--navy-2),var(--navy) 62%)}
+.wrap{max-width:980px;margin:0 auto;padding:max(24px,env(safe-area-inset-top)) 16px 40px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
+.opt{display:block;padding:24px;text-decoration:none;color:var(--on-navy);min-height:150px}
+.opt .sub{font-size:26px;display:block;margin-bottom:6px}
+.opt span.d{color:var(--on-navy-2);font-size:19px}
+.opt:hover,.opt:focus-visible{border-color:var(--gold)}
+.opt.first{border-color:var(--gold)}
+.foot{margin-top:28px;color:var(--on-navy-2);font-size:16px}
+@media (max-width:640px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">Champion Pride</p>
+  <h1 class="two-tone">Pocket Protocol stand.<span class="l2">Pick what this device is.</span></h1>
+  <div class="grid">
+    <a class="glass opt first" href="operator.html"><span class="sub">Stand helper</span><span class="d">Step-by-step setup and running. Start here.</span></a>
+    <a class="glass opt" href="display.html"><span class="sub">Display</span><span class="d">The iPad or big screen the rider watches.</span></a>
+    <a class="glass opt" href="sensor.html"><span class="sub">Phone sensor</span><span class="d">Opened on the rider's phone. Usually from the QR code.</span></a>
+    <a class="glass opt" href="display.html?demo=1"><span class="sub">Demo</span><span class="d">Sample traces, no phone or internet needed. Marked SAMPLE.</span></a>
+  </div>
+  <p class="foot">A demonstration of how your phone sees your movement. Not a medical or clinical measure. Nothing about visitors is stored.</p>
+</div>
+<script>if('serviceWorker' in navigator&&location.protocol!=='file:')navigator.serviceWorker.register('sw.js').catch(function(){});</script>
+</body>
+</html>

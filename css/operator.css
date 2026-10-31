@@ -1,0 +1,40 @@
+body.paper{min-height:100vh;min-height:100dvh;font-size:20px}
+.op{max-width:760px;margin:0 auto;padding:max(14px,env(safe-area-inset-top)) 16px max(14px,env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:14px;min-height:100vh;min-height:100dvh}
+.op-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.failsafe{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--stone);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:17px}
+.failsafe.on{background:var(--gold-tint);border-color:var(--gold)}
+.dots{display:flex;gap:8px;align-items:center}
+.dots span{flex:1;height:8px;border-radius:4px;background:var(--line)}
+.dots span.done{background:var(--gold)}
+.dots span.cur{background:var(--ink)}
+.step{flex:1;outline:none}
+.step h1{font-size:clamp(32px,7vw,52px);margin-bottom:14px}
+.step .lead{font-size:22px;color:var(--ink-2)}
+.op-nav{display:grid;grid-template-columns:1fr 1.4fr 1.2fr;gap:10px;position:sticky;bottom:0;background:linear-gradient(transparent,var(--paper) 30%);padding-top:10px}
+.op-nav .btn{width:100%;padding:12px 8px;font-size:18px}
+.checks{display:grid;gap:10px;margin:14px 0}
+.check{display:flex;align-items:center;gap:14px;min-height:64px;padding:12px 16px;background:#fff;border:1px solid var(--line);border-radius:14px;cursor:pointer;font-size:21px;text-align:left;width:100%;font-family:var(--sans);font-weight:300;color:var(--ink)}
+.check .box{flex:none;width:30px;height:30px;border:2px solid var(--ink);border-radius:4px;display:grid;place-items:center;color:var(--navy)}
+.check[aria-pressed=true] .box{background:var(--gold);border-color:var(--gold)}
+.check[aria-pressed=true] .box::after{content:"";width:12px;height:7px;border-left:3px solid var(--navy);border-bottom:3px solid var(--navy);transform:rotate(-45deg) translate(1px,-1px)}
+.codebig{font-family:var(--display);font-size:clamp(72px,20vw,128px);letter-spacing:.14em;line-height:1;color:var(--ink);margin:6px 0}
+.pairrow{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin:10px 0}
+.qr{width:min(220px,56vw);aspect-ratio:1;background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px}
+.qr svg{width:100%;height:100%;display:block}
+.status{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;font-weight:700;font-family:var(--sans);background:var(--stone);border:1px solid var(--line)}
+.status i{width:14px;height:14px;border-radius:50%;background:#B9B2A0}
+.status.ok{background:#E6F1EA;border-color:#9CC8AE}.status.ok i{background:#2E8B57}
+.field{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:12px 0}
+.field input,.field select{font:inherit;font-size:24px;min-height:56px;padding:0 14px;border:2px solid var(--line);border-radius:var(--radius-btn);background:#fff;color:var(--ink)}
+.field input.code-in{width:5.6ch;padding:0;text-transform:uppercase;letter-spacing:.12em;font-family:var(--display);font-size:30px;text-align:center}
+.mini{background:var(--navy);border-radius:14px;padding:10px;margin:12px 0}
+.mini canvas{width:100%;height:150px;display:block}
+.tapok{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;background:var(--stone);border:1px solid var(--line);font-weight:700;font-family:var(--sans);font-size:22px}
+.tapok.ok{background:#E6F1EA;border-color:#9CC8AE}
+.ol{margin:0;padding-left:1.2em;display:grid;gap:8px}
+.drawer{position:fixed;inset:0;background:rgba(0,29,48,.55);display:flex;align-items:flex-end;justify-content:center;z-index:20}
+.drawer-card{background:var(--paper);color:var(--ink);width:min(760px,100%);max-height:84vh;overflow:auto;border-radius:20px 20px 0 0;padding:20px 20px max(20px,env(safe-area-inset-bottom))}
+.drawer-card ul{margin:10px 0 0;padding-left:1.1em;display:grid;gap:10px}
+.drawer-card li{font-size:19px}
+.big-status{font-family:var(--display);font-size:clamp(34px,8vw,56px);margin:10px 0}
+@media (max-width:420px){.op-nav .btn{font-size:16px}.failsafe{font-size:15px}}
